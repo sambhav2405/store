@@ -213,4 +213,17 @@ function login(email, password) {
       alert(error.message);
     });
 }
+function saveCartToFirebase(cart) {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    db.collection("carts").doc(user.uid).set({
+      items: cart
+    }).then(() => {
+      alert("Cart saved online!");
+    });
+  } else {
+    alert("Please login first.");
+  }
+}
+
 
