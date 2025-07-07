@@ -282,7 +282,7 @@ createUserWithEmailAndPassword(auth, email, password)
      messege.textContent="error code!";
      console.log(errorCode);
   messege.classList.add("error")
-  if (errorCode=="auth/email-already-in-use " )
+  if (errorCode=="auth/email-already-in-use" )
   messege.textContent="THIS MAIL is already register";
   else if(errorCode=="auth/invalid-email" )
   messege.textContent="use vaild mail";
