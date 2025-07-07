@@ -46,6 +46,9 @@
   <a href="#">Contact</a>
   <a href="#" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i></a>
   <button class="popup" onclick="loginFunction()">Login</button>
+  <span id="userEmail" style="color:white; font-weight:600;"></span>
+
+
 </nav>
 
   </header>
@@ -159,7 +162,7 @@
       </div>
       <label class="remember"><input type="checkbox" id="term" required/> I agree to terms & conditions</label>
       <div class="input-box">
-        <button class="btn-submit" type="submit">Sign Up <i class='bx bx-user-plus'></i></button>
+        <button class="btn-submit btn2" type="submit">Sign Up <i class='bx bx-user-plus'></i></button>
       </div>
       <div class="switch-form">
         <span>Already have an account? <a href="#" onclick="loginFunction()">Login</a></span>
@@ -244,7 +247,7 @@
   // https://firebase.google.com/docs/web/setup#available-libraries
 
 
-const btn = document.querySelector(".btn-submit");
+const btn2 = document.querySelector(".register-form .btn-submit");
 const messege=document.querySelector(".messege_box")
 
   // Your web app's Firebase configuration
@@ -259,7 +262,11 @@ const messege=document.querySelector(".messege_box")
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+
+
   btn.addEventListener("click", function(event){
+
+
     const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
     event.preventDefault();
@@ -277,7 +284,7 @@ createUserWithEmailAndPassword(auth, email, password)
     // ...
   })
   .catch((error) => {
-    const errorCode = error.code;
+      const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode)
                 messege.classList.add("error");
@@ -288,10 +295,48 @@ createUserWithEmailAndPassword(auth, email, password)
                 }else if(errorCode == "auth/weak-password"){
                     messege.textContent = "The password must be at least 6 characters!";
                 }
-  
-    // ..
-  });
-  })
+ 
+});
+  }) 
+
+  import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+const loginBtn = document.querySelector(".login-form .btn-submit");
+loginBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const auth = getAuth(app);
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      messege.textContent = "Login successful!";
+      messege.classList.add("created");
+    })
+    .catch((error) => {
+      messege.textContent = "Login failed. Check email or password!";
+      messege.classList.add("error");
+    });
+});
+
+
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+const forgetBtn = document.querySelector(".forget-form .btn-submit");
+forgetBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  const email = document.querySelector(".forget-form input[type='email']").value;
+
+  const auth = getAuth(app);
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      alert("Reset link sent to email");
+    })
+    .catch((error) => {
+      alert("Failed to send reset email: " + error.message);
+    });
+});
+
 </script>
 </body>
 </html>
