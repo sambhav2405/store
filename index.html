@@ -278,16 +278,16 @@ createUserWithEmailAndPassword(auth, email, password)
   })
   .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;
-     messege.textContent="error code!";
-     console.log(errorCode);
-  messege.classList.add("error")
-  if (errorCode=="auth/email-already-in-use" )
-  messege.textContent="THIS MAIL is already register";
-  else if(errorCode=="auth/invalid-email" )
-  messege.textContent="use vaild mail";
-  else if(errorCode=="auth/weak-password" )
-  messege.textContent="type strong password";
+                const errorMessage = error.message;
+                console.log(errorCode)
+                messege.classList.add("error");
+                if(errorCode == "auth/email-already-in-use"){
+                    messege.textContent = "This email is already registered!";
+                }else if(errorCode == "auth/invalid-email"){
+                    messege.textContent = "The email format is incorrect!";
+                }else if(errorCode == "auth/weak-password"){
+                    messege.textContent = "The password must be at least 6 characters!";
+                }
   
     // ..
   });
