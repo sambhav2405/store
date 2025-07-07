@@ -192,3 +192,25 @@ function performSearch() {
     alert("Searching for: " + query); // Replace with real logic if needed
   }
 }
+// SIGNUP
+function signup(email, password) {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      alert("Signup successful!");
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+}
+
+// LOGIN
+function login(email, password) {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      alert("Login successful!");
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+}
+
