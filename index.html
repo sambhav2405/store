@@ -286,7 +286,7 @@ createUserWithEmailAndPassword(auth, email, password)
   messege.textContent="THIS MAIL is already register";
   else if(errorCode=="auth/invalid-email" )
   messege.textContent="use vaild mail";
-  else (errorCode=="auth/weak-password" )
+  else if(errorCode=="auth/weak-password" )
   messege.textContent="type strong password";
   
     // ..
