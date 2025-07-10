@@ -1,0 +1,23 @@
+[
+  {
+    "id": "p1",
+    "title": "Smart Watch",
+    "price": 2999,
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/i/l/r/-original-imagyjxyusabghfy.jpeg",
+    "description": "Bluetooth Smart Watch with Heart Rate Monitor"
+  },
+  {
+    "id": "p2",
+    "title": "Bluetooth Earbuds",
+    "price": 1499,
+    "image": "https://rukminim2.flixcart.com/image/612/612/l3xcr680/headphone/y/n/u/airpods-pro-2nd-generation-apple-original-imagewnfpu7pzgnq.jpeg",
+    "description": "TWS Wireless Earbuds with Mic"
+  },
+  {
+    "id": "p3",
+    "title": "Gaming Mouse",
+    "price": 799,
+    "image": "https://rukminim2.flixcart.com/image/612/612/kxgfzbk0/mouse/h/g/2/zeb-transformer-m-zebronics-original-imag9wsb3tghgyps.jpeg",
+    "description": "RGB Gaming Mouse with Adjustable DPI"
+  }
+]
